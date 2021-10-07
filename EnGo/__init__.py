@@ -24,9 +24,6 @@ def create_app(test_config=None):
     db.init_app(app)
     Migrate(app, db)
 
-    from .cli import init_db_command
-    app.cli.add_command(init_db_command)
-
     from .api import api
     api.init_app(app)
 
