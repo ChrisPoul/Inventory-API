@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_migrate import Migrate
 
 
 def create_app(test_config=None):
@@ -21,6 +22,7 @@ def create_app(test_config=None):
 
     from .models import db
     db.init_app(app)
+    Migrate(app, db)
 
     from .cli import init_db_command
     app.cli.add_command(init_db_command)
