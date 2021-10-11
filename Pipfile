@@ -9,8 +9,8 @@ flask-sqlalchemy = "*"
 flask-testing = "*"
 requests = "*"
 flask-restful = "*"
-mysqlclient = "*"
 flask-migrate = "*"
+pymysql = "*"
 
 [dev-packages]
 
