@@ -1,14 +1,10 @@
-from sqlalchemy import (
-    Column, Integer, DateTime,
-    String
-)
-from sqlalchemy.sql import func
-from . import db, Model
+import mongoengine as me
+from datetime import datetime
 
 
-class Product(db.Model, Model):
-    id = Column(Integer, primary_key=True)
-    name = Column(String(100), nullable=False, unique=True)
-    price = Column(Integer, nullable=False, default=0)
-    time_created = Column(DateTime, server_default=func.now())
-    time_updated = Column(DateTime, server_onupdate=func.now())
+class Product(me.Document):
+    id = me.IntField(primary_key=True)
+    name = me.StringField(required=True)
+    price = me.FloatField(default=0)
+    time_created = me.DateTimeField(default=datetime.now)
+    time_updated = me.DateTimeField(default=datetime.now)
