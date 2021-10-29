@@ -75,7 +75,7 @@ class TestUpdateProduct(ProductTest):
                 data=product_data
             )
 
-        self.assertEqual(self.product.name, 'New Name')
+        self.assertTrue(Product.objects(name='New Name'))
 
 
 class TestDeleteProduct(ProductTest):
@@ -86,4 +86,4 @@ class TestDeleteProduct(ProductTest):
                 url_for('products', product_id=self.product.id)
             )
 
-        self.assertNotIn(self.product, self.db.session)
+        self.assertNotIn(self.product, Product.objects)

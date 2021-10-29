@@ -14,12 +14,13 @@ class ProductResource(Resource):
     @marshal_with(product_fields)
     def get(self, product_id=None):
         if product_id is None:
-            return Product.objects.all()
+            return list(Product.objects)
 
         return Product.objects.with_id(product_id)
 
     def post(self):
         product = Product(
+            id=request.form['id'],
             name=request.form['name'],
             price=request.form['price']
         )
@@ -27,7 +28,7 @@ class ProductResource(Resource):
 
     def put(self, product_id):
         product = Product.objects.with_id(product_id)
-        product.update(request.form)
+        product.modify(**request.form)
 
     def delete(self, product_id):
         product = Product.objects.with_id(product_id)
