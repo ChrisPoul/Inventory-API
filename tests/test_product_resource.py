@@ -8,7 +8,6 @@ class ProductTest(Test):
     def setUp(self):
         Test.setUp(self)
         self.product = Product(
-            id=1,
             name='Test Product',
             price=10
         )
@@ -49,7 +48,6 @@ class TestAddProduct(ProductTest):
 
     def test_should_add_product_given_post_request_with_valid_product_data(self):
         product_data = dict(
-            id=2,
             name='Test Product 2',
             price=10
         )

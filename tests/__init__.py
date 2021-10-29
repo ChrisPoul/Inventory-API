@@ -22,7 +22,7 @@ class Test(TestCase):
 
     def setUp(self):
         disconnect()
-        connect('test', host='mongomock://localhost')
+        connect('test', host='mongomock://localhost', alias="default")
 
     def tearDown(self):
         disconnect()

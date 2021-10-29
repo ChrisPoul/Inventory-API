@@ -20,7 +20,6 @@ class ProductResource(Resource):
 
     def post(self):
         product = Product(
-            id=request.form['id'],
             name=request.form['name'],
             price=request.form['price']
         )
