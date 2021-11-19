@@ -1,8 +1,8 @@
 from flask_restful import Api
+from .resources import ProductResource
 
 api = Api(prefix='/inventory')
 
-from .resources import ProductResource
 api.add_resource(
     ProductResource,
     '/products',

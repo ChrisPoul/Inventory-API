@@ -1,7 +1,7 @@
 from flask_testing import TestCase
 from mongoengine import connect, disconnect
-from EnGo import create_app
-from EnGo.models import db
+from Inventory import create_app
+from Inventory.models import db
 
 
 class Test(TestCase):

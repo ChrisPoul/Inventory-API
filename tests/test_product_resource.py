@@ -1,6 +1,6 @@
 from . import Test
 from flask import url_for
-from EnGo.models.product import Product
+from Inventory.models.product import Product
 
 
 class ProductTest(Test):
